@@ -8,6 +8,7 @@ import Page404 from "./pages/Page404";
 import UserManage from "./pages/UserManage/UserManage";
 import OrderManage from "./pages/OrderMange/OrderManage";
 import AddMovie from "./pages/MovieManage/AddMovie";
+import MovieDetails from "./pages/MovieDetails/MovieDetails";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route element={<AddMovie />} path="create_movie" />
           <Route element={<OrderManage />} path="order_manage" />
         </Route>
+          <Route element={<MovieDetails />} path="movie-details" />
         <Route path="*" element={<Page404 />} />
       </Routes>
     </>
@@ -32,8 +34,7 @@ function App() {
 
 export default App;
 
-
 // trang admin quản lý người dùng
-// 
+//
 // chi tiết phim
 // đặt vé
