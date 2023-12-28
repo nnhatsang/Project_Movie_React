@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { listAPI } from "../../services/API";
 import { useDispatch } from "react-redux";
 import { disableLoading, enableLoading } from "../../redux/LoadingSlice";
+import ModalVideo from "react-modal-video";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -46,6 +47,8 @@ const Banner = () => {
 
   const dispatch = useDispatch();
   const [banner, setBanner] = useState([]);
+  const [isOpenModal, setOpenModal] = useState(false);
+
   useEffect(() => {
     dispatch(enableLoading());
     listAPI
@@ -57,10 +60,10 @@ const Banner = () => {
       .catch((err) => {
         console.log(err);
         dispatch(disableLoading());
-      })
-      // .finally(() => {
-      //   dispatch(disableLoading);
-      // });
+      });
+    // .finally(() => {
+    //   dispatch(disableLoading);
+    // });
   }, []);
   console.log(banner);
 
@@ -69,12 +72,24 @@ const Banner = () => {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
+
   return (
     <>
       <Carousel {...setting} arrows={true}>
         {banner.map((item, index) => (
-          <div key={index} className="h-[500px]">
-            <img src={item.hinhAnh} alt="" className="w-full bg-center" />
+          <div key={index} className="h-screen">
+            <img src={item.hinhAnh} alt="" className="w-full" />
+            {/* <ModalVideo
+              channel="youtube"
+              isOpen={isOpenModal}
+              videoId={index.maPhim}
+              onClose={() => {
+                setOpenModal(false);
+              }}
+            />
+            <button className="bg-yellow-300 p-4" onClick={() => setOpenModal(true)}>
+              VIEW DEMO
+            </button> */}
           </div>
         ))}
       </Carousel>

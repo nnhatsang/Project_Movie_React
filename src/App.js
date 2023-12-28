@@ -17,6 +17,7 @@ function App() {
         <Route path="/" element={<UserTemplate />}>
           {/* index giúp hiển thị vị trí ngang cấp cha */}
           <Route index element={<HomePage />} />
+          <Route element={<MovieDetails />} path="movie-details" />
         </Route>
         <Route element={<Login />} path="/login" />
         <Route element={<AdminTemplate />} path="/admin">
@@ -25,7 +26,6 @@ function App() {
           <Route element={<AddMovie />} path="create_movie" />
           <Route element={<OrderManage />} path="order_manage" />
         </Route>
-          <Route element={<MovieDetails />} path="movie-details" />
         <Route path="*" element={<Page404 />} />
       </Routes>
     </>
