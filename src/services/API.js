@@ -13,7 +13,7 @@ export const listAPI = {
   // login
   login: (data) => API.post("/api/QuanLyNguoiDung/DangNhap", data),
   // admin
-  get_movie: () => API.get(`api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01`),
+  get_movie: () => API.get("/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01"),
 
   delete_movie: (maPhim) =>
     API.delete(`/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`),
