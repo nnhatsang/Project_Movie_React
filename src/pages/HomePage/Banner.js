@@ -73,7 +73,7 @@ const Banner = () => {
     <>
       <Carousel {...setting} arrows={true}>
         {banner.map((item, index) => (
-          <div key={index} className="h-[500px]">
+          <div key={index} className="h-[700px]">
             <img src={item.hinhAnh} alt="" className="w-full bg-center" />
           </div>
         ))}
