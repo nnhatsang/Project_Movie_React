@@ -17,6 +17,7 @@ const AdminTemplate = () => {
   const nav = useNavigate();
 
   const location = useLocation();
+  
   console.log(location);
   const { user } = useSelector((state) => state.userSlice);
   const {

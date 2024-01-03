@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<UserTemplate />}>
           {/* index giúp hiển thị vị trí ngang cấp cha */}
           <Route index element={<HomePage />} />
-          <Route element={<MovieDetails />} path="movie-details" />
+          <Route element={<MovieDetails />} path="/movie-details/:maPhim" />
         </Route>
         <Route element={<Login />} path="/login" />
         <Route element={<AdminTemplate />} path="/admin">

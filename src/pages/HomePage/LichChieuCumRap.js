@@ -3,6 +3,7 @@ import { listAPI } from "../../services/API";
 import { Tabs } from "antd";
 import "./LichChieuCumRap.css";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 const LichChieuCumRap = ({ maHeThongRap }) => {
   const [cumRap, setCumRap] = useState([]);
@@ -14,7 +15,7 @@ const LichChieuCumRap = ({ maHeThongRap }) => {
       })
       .catch((err) => console.log(err));
   }, [maHeThongRap]);
-  console.log(cumRap);
+  // console.log(cumRap);
   return (
     <div className="cum_rap">
       <Tabs
@@ -37,41 +38,39 @@ const LichChieuCumRap = ({ maHeThongRap }) => {
             key: index,
             children: (
               <div id="style-4">
-                {item.danhSachPhim
-                  // .filter((i) => i.dangChieu === true && i.sapChieu === true)
-                  .map((i, d) => (
-                    <div className="flex space-y-5 p-5" key={d}>
-                      <div className="col-left w-24 mr-4">
-                        <img src={i.hinhAnh} alt="" />
-                      </div>
-                      <div className="col-right space-y-3">
+                {item.danhSachPhim.map((i, d) => (
+                  <div className="flex space-y-5 p-5" key={d}>
+                    <div className="col-left w-24 mr-4">
+                      <img src={i.hinhAnh} alt="" />
+                    </div>
+                    <div className="col-right space-y-3">
+                      <Link to={`/movie-details/${i.maPhim}`}>
                         <div className="font-bold text-xl">
                           <span className="p-2 mr-5 text-white text-xs bg-red-500 rounded-md">
                             C18
                           </span>
                           {i.tenPhim}
                         </div>
-                        <div className="grid grid-cols-2 gap-5">
-                          {i.lstLichChieuTheoPhim
-                            .splice(0, 4)
-                            .map((item, index) => (
-                              <div className="space-x-2 bg-gray-100 border border-gray-400 rounded-md text-base p-3">
-                                <span className="text-green-600 font-medium">
-                                  {moment(item.ngayChieuGioChieu).format(
-                                    "DD-MM-YYYY"
-                                  )}
-                                </span>
-                                <span className="text-red-500">
-                                  {moment(item.ngayChieuGioChieu).format(
-                                    "hh-mm"
-                                  )}
-                                </span>
-                              </div>
-                            ))}
-                        </div>
+                      </Link>
+                      <div className="grid grid-cols-2 gap-5">
+                        {i.lstLichChieuTheoPhim
+                          .splice(0, 4)
+                          .map((item, index) => (
+                            <div className="space-x-2 bg-gray-100 border border-gray-400 rounded-md text-base p-3">
+                              <span className="text-green-600 font-medium">
+                                {moment(item.ngayChieuGioChieu).format(
+                                  "DD-MM-YYYY"
+                                )}
+                              </span>
+                              <span className="text-red-500">
+                                {moment(item.ngayChieuGioChieu).format("hh-mm")}
+                              </span>
+                            </div>
+                          ))}
                       </div>
                     </div>
-                  ))}
+                  </div>
+                ))}
               </div>
             ),
           };

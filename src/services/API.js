@@ -12,6 +12,9 @@ export const listAPI = {
     API.get(
       `/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}&maNhom=GP09`
     ),
+  //movie-details
+  detail_film: (maPhim) =>
+    API.get(`/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`),
 
   // login
   login: (data) => API.post("/api/QuanLyNguoiDung/DangNhap", data),
