@@ -78,14 +78,12 @@ const MovieDetails = () => {
               <div className="sub-btn my-4">
                 <a
                   href={trailer}
-                  className="btn font-medium text-white text-base bg-green-500 px-3 py-2 rounded uppercase mr-4"
-                >
+                  className="btn font-medium text-white text-base bg-green-500 px-3 py-2 rounded uppercase mr-4">
                   Xem trailer
                 </a>
                 <Link
                   to={`/ticket/${tenPhim}/12h`}
-                  className="btn font-medium text-white text-base bg-green-500 px-3 py-2 rounded uppercase mr-4"
-                >
+                  className="btn font-medium text-white text-base bg-green-500 px-3 py-2 rounded uppercase mr-4">
                   Đặt vé ngay
                 </Link>
               </div>
@@ -99,8 +97,7 @@ const MovieDetails = () => {
             tabPosition="left"
             style={{
               border: "1px solid #8080806e",
-            }}
-          >
+            }}>
             {(heThongRapChieu || []).map((item, index) => (
               <Tabs.TabPane
                 tab={
@@ -110,8 +107,7 @@ const MovieDetails = () => {
                     alt={`Logo ${index + 1}`}
                   />
                 }
-                key={index + 1}
-              ></Tabs.TabPane>
+                key={index + 1}></Tabs.TabPane>
             ))}
           </Tabs>
         </div>
