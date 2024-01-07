@@ -43,7 +43,7 @@ const LichChieuCumRap = ({ maHeThongRap }) => {
                     <div className="col-left w-24 mr-4">
                       <img src={i.hinhAnh} alt="" />
                     </div>
-                    <div className="col-right space-y-3">
+                    <div className="col-right space-y-3 text-white">
                       <Link to={`/movie-details/${i.maPhim}`}>
                         <div className="font-bold text-xl">
                           <span className="p-2 mr-5 text-white text-xs bg-red-500 rounded-md">
