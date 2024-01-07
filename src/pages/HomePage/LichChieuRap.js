@@ -28,11 +28,6 @@ const LichChieuRap = () => {
             children: <LichChieuCumRap maHeThongRap={item.maHeThongRap} />,
           };
         })}
-        // onChange={(activeKey) => {
-        //   console.log(activeKey);
-        //   // khi nguoi dung click sẽ setmaHeThongRap
-        //   setMaHeThongRap(activeKey);
-        // }}
       />
     </>
   );

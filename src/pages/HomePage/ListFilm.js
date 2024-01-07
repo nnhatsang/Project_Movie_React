@@ -94,14 +94,4 @@ const ListFilm = () => {
 
 export default ListFilm;
 
-// <>
-//   {listFilm.map((movie, index) => (
-//     <MovieItem
-//       key={movie.maPhim}
-//       movieId={movie.maPhim}
-//       image={movie.hinhAnh}
-//       movieName={movie.tenPhim}
-//       description={movie.moTa}
-//     />
-//   ))}
-// </>
+

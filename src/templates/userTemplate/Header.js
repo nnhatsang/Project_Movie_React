@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const { user } = useSelector((state) => state.userSlice);
-  console.log(user);
+  // console.log(user);
   return (
     <>
       <header className="bg-white text-black">
@@ -53,7 +53,7 @@ const Header = () => {
             <NavLink to={"/"}>Tin tức</NavLink>
             <NavLink
               className={({ isActive, isPending }) => {
-                console.log(isActive);
+                // console.log(isActive);
                 return isActive ? "text-red-500" : "";
               }}
               to={"/ung-dung"}>
