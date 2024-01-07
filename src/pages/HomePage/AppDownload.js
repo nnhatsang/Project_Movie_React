@@ -80,7 +80,8 @@ const AppDemo = () => {
             }}>
             người yêu điện ảnh
           </h4>
-          <p  className="font-bold"
+          <p
+            className="font-bold"
             style={{
               marginBottom: "50px",
             }}>
