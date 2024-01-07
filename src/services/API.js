@@ -4,6 +4,9 @@ export const listAPI = {
   // phim
   get_rap: () => API.get("/api/QuanLyRap/LayThongTinHeThongRap"),
 
+  // lay danh sach phim
+  get_list_film: () => API.get("/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP09"),
+
   // phim theo rạp
   get_film_theater: (maHeThongRap) =>
     API.get(

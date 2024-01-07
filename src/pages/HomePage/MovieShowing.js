@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Carousel } from "antd";
 import { listAPI } from "../../services/API";
-import "./MovieShowing.css";
 
 const MovieShowing = () => {
   const [danhSach, setDanhSach] = useState([]);

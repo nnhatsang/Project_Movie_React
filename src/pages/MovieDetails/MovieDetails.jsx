@@ -1,40 +1,23 @@
 // import React, { useEffect, useState } from "react";
-import Footer from "../../templates/userTemplate/Footer";
-import "./MovieDetails.css";
-import { listAPI } from "../../services/API";
-import nhabanu from "./../../assets/nha-ba-nu.jpg";
 import { Rate } from "antd";
-import Header from "../../templates/userTemplate/Header";
-import LichChieuRap from "../HomePage/LichChieuRap";
+import nhabanu from "./../../assets/nha-ba-nu.jpg";
+import "./MovieDetails.css";
 const MovieDetails = () => {
-  // const [cumRap, setCumRap] = useState([]);
-  // useEffect(() => {
-  //   listAPI
-  //     .get_film_theater(maHeThongRap)
-  //     .then((res) => {
-  //       setCumRap(res.data.content[0]?.lstCumRap);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, [maHeThongRap]);
-  // console.log(cumRap);
   return (
-    <div>
-      <Header />
-      <section className="movie_details flex justify-center align-middle">
-        <div className="mr-10">
-          <img src={nhabanu} alt="" />
+    <div className="bg-green-950 flex h-screen justify-center items-center">
+      <div className=" container w-8/12">
+        <div className="grid grid-cols-12 ">
+          <div className="col-left col-span-3 ">
+            <img src={nhabanu} alt="" className=" rounded-md h-28 lg:h-96" />
+          </div>
+          <div className="col-right text-white col-span-9 flex flex-col justify-center items-baseline ">
+            <p className="font-bold">28.05.2022</p>
+            <h4 className="mt-2 mb-2 font-semibold text-xl">Nhà Bà Nữ</h4>
+            <p className="mb-10 ">120 phút</p>
+            <button className="rounded-md text-xl mb-5">Mua vé</button>
+            <Rate disabled defaultValue={5} />
+          </div>
         </div>
-        <div className="content_right">
-          <p className="font-bold">28.05.2022</p>
-          <h4 className="mt-2 mb-2 font-semibold text-xl">Nhà Bà Nữ</h4>
-          <p className="mb-10 ">120 phút</p>
-          <button className="rounded-md text-xl">Mua vé</button>
-        </div>
-        <Rate disabled defaultValue={5} />
-      </section>
-      <LichChieuRap />
-      <div className="footer">
-        <Footer />
       </div>
     </div>
   );

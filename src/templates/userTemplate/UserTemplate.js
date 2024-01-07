@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 import Footer from "./Footer";
 import Header from "./Header";
+import AppDownload from "../../pages/HomePage/AppDownload";
 
 const UserTemplate = () => {
   const { isActive } = useSelector((state) => state.LoadingSlice);
@@ -17,9 +18,9 @@ const UserTemplate = () => {
       <>
         <Header />
         <Outlet />
+        <AppDownload />
         <Footer />
       </>
-      
     </>
   );
 };
