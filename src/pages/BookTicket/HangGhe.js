@@ -1,65 +1,73 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { Fragment } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { datGhe } from "../../redux/ticketSlice";
 
-const HangGhe = (props) => {
+const HangGhe = ({ danhSachGhe }) => {
   const dispatch = useDispatch();
-//   const { arrTicket, arrBookTicked } = useSelector(
-//     (state) => state.ticketSlice
-//   );
-  //   console.log(props);
-  //   console.log(arrTicket);
-  return (
-    <>
-      {/* {arrTicket[props.index].danhSachGhe.map((ghe, index) => {
-        let cssGheDaDat = "";
-        let disable = false;
-        if (ghe.daDat) {
-          cssGheDaDat = "gheDuocChon";
-          disable = true;
-        }
-        let indexGhe = arrBookTicked.findIndex(
-          (item) => item.soGhe === ghe.soGhe
-        );
-        if (indexGhe != -1) {
-          cssGheDaDat = "gheDangChon";
-        }
-
-        switch (ghe.soGhe) {
-          case "1":
-          case "2":
-          case "3":
-          case "4":
-          case "5":
-          case "6":
-          case "7":
-          case "8":
-          case "9":
-          case "10":
-          case "11":
-          case "12":
-            cssGheDaDat = "rowNumber";
-            disable = true;
-            break;
-        }
-        return (
+  const { arrGheDangDat } = useSelector((state) => state.ticketSlice);
+  const renderGhe = () =>
+    danhSachGhe?.map((i, d) => {
+      let gheVip = i.loaiGhe === "Vip" ? "gheVip" : "";
+      let daDat = i.daDat === true ? "gheDaDat" : "";
+      let dangDat = "";
+      let indexGheDD = arrGheDangDat.findIndex(
+        (gheDD) => gheDD.maGhe === i.maGhe
+      );
+      if (indexGheDD != -1) {
+        dangDat = "gheDangDat";
+      }
+      return (
+        <Fragment>
           <button
-            key={index}
-            disabled={disable}
-            className={`ghe ${cssGheDaDat} bg-white text-black`}
             onClick={() => {
               let gheDat = {
-                soGhe: ghe.soGhe,
-                gia: ghe.gia,
+                maGhe: i.maGhe,
+                tenGhe: i.tenGhe,
+                maRap: i.maRap,
+                loaiGhe: i.loaiGhe,
+                stt: i.stt,
+                giaVe: i.giaVe,
+                daDat: i.daDat,
+                taiKhoanNguoiDat: i.taiKhoanNguoiDat,
               };
               const actions = datGhe(gheDat);
               dispatch(actions);
             }}
+            key={d}
+            disabled={i.daDat}
+            className={`ghe ${gheVip} ${daDat} ${dangDat}`}
           >
-            {ghe.soGhe}
+            {i.daDat ? (
+              <span className="font-bold">X</span>
+            ) : (
+              <span>{i.stt}</span>
+            )}
           </button>
-        );
-      })} */}
-    </>
+          {(i + 1) % 16 === 0 ? <br /> : ""}
+        </Fragment>
+      );
+    });
+  return (
+    <div className="mb:w-[40rem]">
+      {renderGhe()}
+      {/* <div className="grid grid-cols-2 mt-5 ">
+        <h1 className="text-white flex items-center font-bold">
+          <button className="ghe "></button> : Ghế Chưa Đặt{" "}
+        </h1>
+        <h1 className="text-white flex items-center font-bold">
+          <button className="ghe gheDaDat"></button> : Ghế đã đặt{" "}
+        </h1>
+        <h1 className="text-white flex items-center font-bold">
+          <button className="ghe gheDangDat"></button> : Ghế đang được chọn{" "}
+        </h1>
+        <h1 className="text-white flex items-center font-bold">
+          <button className="ghe gheDuocMinhDat"></button> : Ghế bạn đã đặt{" "}
+        </h1>
+        <h1 className="text-white flex items-center font-bold">
+          <button className="ghe gheVip"></button> : Ghế Vip{" "}
+        </h1>
+      </div> */}
+    </div>
   );
 };
 

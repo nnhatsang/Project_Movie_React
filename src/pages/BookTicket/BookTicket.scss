@@ -1,6 +1,6 @@
 .ghe {
-  width: 30px;
-  height: 30px;
+  width: 30px !important;
+  height: 30px !important;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -27,7 +27,6 @@
 }
 
 .screen {
-  height: 10rem;
   background-color: #fff; /* Màu nền trắng */
   filter: drop-shadow(4px 30px 20px rgba(255, 255, 255, 0.5));
   font-size: 25px;
@@ -39,15 +38,19 @@
   cursor: no-drop;
 }
 
-.gheDangChon {
-     background-color: rgb(21, 128, 61) !important;
-    font-weight: bold;
+.gheDangDat {
+  background-color: rgb(21, 128, 61) !important;
+  font-weight: bold;
 }
 
 .gheDaDat {
-    background-color: rgb(63, 62, 62) !important;
-    cursor: no-drop;
+  background-color: rgb(63, 62, 62) !important;
+  cursor: no-drop;
 }
 .gheVip {
-    background-color: rgb(220, 38, 38);
+  background-color: rgb(220, 38, 38);
+}
+
+.shadow-box {
+  box-shadow: rgb(255 255 255 / 81%) 0px 5px 15px !important;
 }

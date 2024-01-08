@@ -4,7 +4,7 @@ import { listAPI, quanLiVe } from "../services/API";
 const initialState = {
   arrDanhsachGhe: [],
   arrGheDangDat: [],
-  roomTicketDetail: {},
+  thongTinPhongVe: {},
 };
 
 const ticketSlice = createSlice({
@@ -12,7 +12,7 @@ const ticketSlice = createSlice({
   initialState,
   reducers: {
     getDetailRoomTicket: (state, action) => {
-      state.roomTicketDetail = action.payload;
+      state.thongTinPhongVe = action.payload;
     },
     datGhe: (state, actions) => {
       let gheDaDat = actions.payload;
