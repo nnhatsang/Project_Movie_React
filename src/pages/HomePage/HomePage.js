@@ -5,7 +5,7 @@ import ListFilm from "./ListFilm";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="bg-slate-950">
       <Banner />
       <div className="container space-y-10 mt-10">
         <ListFilm />

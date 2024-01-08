@@ -4,6 +4,15 @@ import { listAPI } from "../../services/API";
 import { useDispatch } from "react-redux";
 import { disableLoading, enableLoading } from "../../redux/LoadingSlice";
 import ModalVideo from "react-modal-video";
+//new banner
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+// import Swiper and modules styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "./Banner.css"
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -74,25 +83,43 @@ const Banner = () => {
   };
 
   return (
+    // <>
+    //   <Carousel {...setting} arrows={true}>
+    //     {banner.map((item, index) => (
+    //       <div key={index} className="h-screen">
+    //         <img src={item.hinhAnh} alt="" className="w-full" />
+
+    //       </div>
+    //     ))}
+    //   </Carousel>
+    // </>
     <>
-      <Carousel {...setting} arrows={true}>
-        {banner.map((item, index) => (
-          <div key={index} className="h-screen">
-            <img src={item.hinhAnh} alt="" className="w-full" />
-            {/* <ModalVideo
-              channel="youtube"
-              isOpen={isOpenModal}
-              videoId={index.maPhim}
-              onClose={() => {
-                setOpenModal(false);
-              }}
-            />
-            <button className="bg-yellow-300 p-4" onClick={() => setOpenModal(true)}>
-              VIEW DEMO
-            </button> */}
-          </div>
+      <Swiper
+        spaceBetween={30}
+        modules={[Autoplay, Navigation, Pagination]}
+        loop={true}
+        hashNavigation={{
+          watchState: true,
+        }}
+        navigation={true}
+        pagination={{ clickable: true }} // Add this line to enable pagination
+        autoplay={{
+          delay: 7000,
+          disableOnInteraction: false,
+        }}
+      >
+        {banner.map((i, d) => (
+          <SwiperSlide key={d}>
+            <div className="w-full md::h-[95vh] sm:h-[70vh] mb:h-[70vh] lg:h-[95vh] relative ">
+              <img
+                src={i.hinhAnh}
+                className="w-full h-full object-cover"
+                alt=""
+              />
+            </div>
+          </SwiperSlide>
         ))}
-      </Carousel>
+      </Swiper>
     </>
   );
 };
