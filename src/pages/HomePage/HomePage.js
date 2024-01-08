@@ -4,15 +4,16 @@ import LichChieuRap from "./LichChieuRap";
 // import MovieShowing from "./MovieShowing";
 import ListFilm from "./ListFilm";
 const HomePage = () => {
-
   return (
     <div className="bg-slate-950">
       <Banner />
-    
+
       {/* <MovieShowing /> */}
-      <div className="container space-y-10 mt-10">
+      <div className="container space-y-10 my-10">
         <ListFilm />
-        <LichChieuRap />
+        <div className="md:hidden mb:hidden lg:block sm:hidden">
+          <LichChieuRap />
+        </div>
       </div>
     </div>
   );

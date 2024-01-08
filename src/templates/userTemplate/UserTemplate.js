@@ -14,7 +14,6 @@ const UserTemplate = () => {
   return (
     <>
       {isActive ? <Loading /> : null}
-      {/* <Loading/> */}
       <>
         <Header />
         <Outlet />

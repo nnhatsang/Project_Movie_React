@@ -19,7 +19,7 @@ export const listAPI = {
 
   book_ticket_film: (MaLichChieu) =>
     API.get(`/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${MaLichChieu}`),
-
+  bookTicket: (ticket) => API.post(`/api/QuanLyDatVe/DatVe`, ticket),
   // login
   login: (data) => API.post("/api/QuanLyNguoiDung/DangNhap", data),
   // admin
@@ -32,7 +32,6 @@ export const listAPI = {
     return API.post("/api/QuanLyPhim/ThemPhimUploadHinh", data);
   },
 };
-
 
 export const quanLiVe = {
   getlistTicket: () => axios.get("/src/assets/data/RenderGhe.json"),

@@ -1,8 +1,33 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { listAPI } from "../../services/API";
+import { message } from "antd";
 
 const BookInfo = ({ thongTinPhim }) => {
   const { arrGheDangDat } = useSelector((state) => state.ticketSlice);
+  console.log(thongTinPhim);
+  const datVeBtn = () => {
+    if (arrGheDangDat.length > 0) {
+      let data = {
+        maLichChieu: thongTinPhim.maLichChieu,
+        danhSachVe: arrGheDangDat,
+      };
+      listAPI
+        .bookTicket(data)
+        .then((res) => {
+          message.success(res.data.content);
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
+        })
+        .catch((err) => {
+          message.error(err.reponse.content);
+        });
+    } else {
+      message.error("Vui lòng chọn ghế");
+    }
+  };
   return (
     <>
       <div className="border-white border p-5 shadow-2xl shadow-box space-y-5 rounded-lg">
@@ -51,8 +76,6 @@ const BookInfo = ({ thongTinPhim }) => {
         <h1 className="text-white mt-0 py-4 border-b  border-gray-700/60 rounded-md border p-2 flex justify-between font-bold text-base">
           Tổng tiền:{" "}
           <span className="text-white  ml-1 text-lg">
-          
-            
             {arrGheDangDat
               .reduce((tongTien, ghe, index) => {
                 return (tongTien += ghe.giaVe);
@@ -62,7 +85,12 @@ const BookInfo = ({ thongTinPhim }) => {
           </span>
         </h1>
         <div className="flex justify-center items-center">
-          <button className="w-3/4 py-2 my-3 bg-green-700 text-white rounded font-bold transition ease-in-out delay-15  hover:scale-110 hover:bg-red-700 duration-300">
+          <button
+            onClick={() => {
+              datVeBtn();
+            }}
+            className="w-3/4 py-2 my-3 bg-green-700 text-white rounded font-bold transition ease-in-out delay-15  hover:scale-110 hover:bg-red-700 duration-300"
+          >
             Đặt vé
           </button>
         </div>

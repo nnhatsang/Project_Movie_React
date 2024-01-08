@@ -13,7 +13,7 @@ const Loading = () => {
   };
   return (
     <div
-      className="fixed inset-0 bg-slate-50 opacity-50 flex items-center"
+      className="fixed inset-0 bg-white  flex items-center"
       style={{ zIndex: 9999 }}
     >
       <Lottie options={defaultOptions} height={400} width={400} />

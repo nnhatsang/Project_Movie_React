@@ -2,7 +2,7 @@
 import { Rate, Tabs } from "antd";
 import nhabanu from "./../../assets/nha-ba-nu.jpg";
 import "./MovieDetails.css";
-import "./../HomePage/LichChieuCumRap.css"
+import "./../HomePage/LichChieuCumRap.css";
 import { useEffect, useState } from "react";
 import { listAPI } from "../../services/API";
 import { Link, useLocation, useParams } from "react-router-dom";
@@ -11,16 +11,26 @@ import "react-circular-progressbar/dist/styles.css";
 import moment from "moment";
 import TrailerModal from "../../components/TrailerModal/TrailerModal";
 import { AiFillStar } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { disableLoading, enableLoading } from "../../redux/LoadingSlice";
 const MovieDetails = () => {
   const [openTraiLer, setOpenTrailer] = useState(false);
 
   const [movieId, setMovied] = useState([]);
   const { maPhim } = useParams();
+  const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(enableLoading());
     listAPI
       .detail_film(maPhim)
-      .then((res) => setMovied(res.data.content))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        setMovied(res.data.content);
+        dispatch(disableLoading());
+      })
+      .catch((err) => {
+        dispatch(disableLoading());
+        console.log(err);
+      });
   }, []);
   // console.log(movieId);
   const { hinhAnh, tenPhim, moTa, danhGia, ngayKhoiChieu, heThongRapChieu } =
@@ -62,7 +72,6 @@ const MovieDetails = () => {
           >
             Xem Trailer
           </button>
-
         </div>
       </div>
       <div className=" cum_rap container py-5 w-full">
@@ -80,12 +89,12 @@ const MovieDetails = () => {
               ),
               key: item.maHeThongRap,
               children: (
-                <div className="space-y-3 mt-5">
+                <div className="space-y-3 mt-5 px-2">
                   {item.cumRapChieu.map((i, d) => (
                     <>
                       <div
                         className="font-medium text-xl text-green-500"
-                        key={index}
+                        key={i}
                       >
                         {i.tenCumRap}
                       </div>

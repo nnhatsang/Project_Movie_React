@@ -27,7 +27,8 @@ function SampleNextArrow(props) {
         color: "white",
         fontSize: "40px",
       }}
-      onClick={onClick}>
+      onClick={onClick}
+    >
       <i className="fa-solid fa-angle-right" />
     </div>
   );
@@ -45,7 +46,8 @@ function SamplePrevArrow(props) {
         fontSize: "40px",
         color: "white",
       }}
-      onClick={onClick}>
+      onClick={onClick}
+    >
       <i className="fa-solid fa-angle-left" />
     </div>
   );
@@ -83,11 +85,30 @@ const Banner = () => {
 
   return (
     <>
-      <Swiper {...setting} arrows={true}>
-        {banner.map((item, index) => (
-          <div key={index} className="h-[500px]">
-            <img src={item.hinhAnh} alt="" className="w-full bg-center" />
-          </div>
+      <Swiper
+        spaceBetween={30}
+        modules={[Autoplay, Navigation, Pagination]}
+        loop={true}
+        hashNavigation={{
+          watchState: true,
+        }}
+        navigation={true}
+        pagination={{ clickable: true }} // Add this line to enable pagination
+        autoplay={{
+          delay: 7000,
+          disableOnInteraction: false,
+        }}
+      >
+        {banner.map((i, d) => (
+          <SwiperSlide key={d}>
+            <div className="w-full md::h-[95vh] sm:h-[70vh] mb:h-[70vh] lg:h-[95vh] relative ">
+              <img
+                src={i.hinhAnh}
+                className="w-full h-full object-cover"
+                alt=""
+              />
+            </div>
+          </SwiperSlide>
         ))}
       </Swiper>
     </>
