@@ -3,7 +3,17 @@ import React, { useEffect, useState } from "react";
 import { listAPI } from "../../services/API";
 import { useDispatch } from "react-redux";
 import { disableLoading, enableLoading } from "../../redux/LoadingSlice";
-// import ModalVideo from "react-modal-video";
+
+import ModalVideo from "react-modal-video";
+//new banner
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+// import Swiper and modules styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "./Banner.css";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -73,13 +83,13 @@ const Banner = () => {
 
   return (
     <>
-      <Carousel {...setting} arrows={true}>
+      <Swiper {...setting} arrows={true}>
         {banner.map((item, index) => (
-          <div key={index} className="h-[600px]">
+          <div key={index} className="h-[500px]">
             <img src={item.hinhAnh} alt="" className="w-full bg-center" />
           </div>
         ))}
-      </Carousel>
+      </Swiper>
     </>
   );
 };

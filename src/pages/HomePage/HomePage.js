@@ -6,7 +6,7 @@ import ListFilm from "./ListFilm";
 const HomePage = () => {
 
   return (
-    <div>
+    <div className="bg-slate-950">
       <Banner />
     
       {/* <MovieShowing /> */}

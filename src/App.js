@@ -1,14 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import UserTemplate from "./templates/userTemplate/UserTemplate";
+import BookTicket from "./pages/BookTicket/BookTicket";
 import HomePage from "./pages/HomePage/HomePage";
-import Login from "./pages/login/Login";
-import AdminTemplate from "./templates/adminTemplate/AdminTemplate";
+import MovieDetails from "./pages/MovieDetails/MovieDetails";
+import AddMovie from "./pages/MovieManage/AddMovie";
 import MovieManage from "./pages/MovieManage/MovieManage";
+import OrderManage from "./pages/OrderMange/OrderManage";
 import Page404 from "./pages/Page404";
 import UserManage from "./pages/UserManage/UserManage";
-import OrderManage from "./pages/OrderMange/OrderManage";
-import AddMovie from "./pages/MovieManage/AddMovie";
-import MovieDetails from "./pages/MovieDetails/MovieDetails";
+import Login from "./pages/login/Login";
+import AdminTemplate from "./templates/adminTemplate/AdminTemplate";
+import UserTemplate from "./templates/userTemplate/UserTemplate";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           {/* index giúp hiển thị vị trí ngang cấp cha */}
           <Route index element={<HomePage />} />
           <Route element={<MovieDetails />} path="/movie-details/:maPhim" />
+          <Route element={<BookTicket />} path="/book-ticket/:MaLichChieu" />
         </Route>
         <Route element={<Login />} path="/login" />
         <Route element={<AdminTemplate />} path="/admin">

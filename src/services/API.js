@@ -1,4 +1,5 @@
 import { API } from "./configServ";
+import axios from "axios";
 export const listAPI = {
   get_banner: () => API.get("/api/QuanLyPhim/LayDanhSachBanner"),
   // phim
@@ -16,6 +17,9 @@ export const listAPI = {
   detail_film: (maPhim) =>
     API.get(`/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`),
 
+  book_ticket_film: (MaLichChieu) =>
+    API.get(`/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${MaLichChieu}`),
+
   // login
   login: (data) => API.post("/api/QuanLyNguoiDung/DangNhap", data),
   // admin
@@ -27,4 +31,9 @@ export const listAPI = {
   addMovie: (data) => {
     return API.post("/api/QuanLyPhim/ThemPhimUploadHinh", data);
   },
+};
+
+
+export const quanLiVe = {
+  getlistTicket: () => axios.get("/src/assets/data/RenderGhe.json"),
 };

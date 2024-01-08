@@ -20,13 +20,13 @@
 }
 
 .cum_rap .ant-tabs-content::-webkit-scrollbar {
-  width: 10px;
-  background-color: #f5f5f5;
+  width: 2px;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .cum_rap .ant-tabs-content::-webkit-scrollbar-thumb {
-  background-color: #000000;
-  border: 2px solid #555555;
+  background-color:green;
+  border: 2px solid green;
 }
 
 

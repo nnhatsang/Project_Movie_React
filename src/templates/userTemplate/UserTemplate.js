@@ -18,7 +18,7 @@ const UserTemplate = () => {
       <>
         <Header />
         <Outlet />
-        <AppDownload />
+        {/* <AppDownload /> */}
         <Footer />
       </>
     </>
