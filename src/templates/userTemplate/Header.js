@@ -7,7 +7,7 @@ const Header = () => {
   // console.log(user);
   return (
     <>
-      <header className="bg-white text-black">
+      <header className="bg-white text-black font-bold">
         <nav
           className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
           aria-label="Global">
@@ -60,14 +60,14 @@ const Header = () => {
               Ứng dụng
             </NavLink>
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end ">
             {/* nếu người dùng dang nhap rôi hiển thị tên */}
             {user ? (
               <p>{user.hoTen}</p>
             ) : (
               <NavLink
                 to={"/login"}
-                className="text-sm font-semibold leading-6 text-gray-900">
+                className="text-sm font-bold leading-6 text-gray-900">
                 Log in <span aria-hidden="true">→</span>
               </NavLink>
             )}

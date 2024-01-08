@@ -2,7 +2,11 @@ import React from 'react'
 
 const OrderManage = () => {
   return (
-    <div>OrderManage</div>
+    <div>
+      <form action="">
+        <label htmlFor="">Hệ thống rạp</label>
+      </form>
+    </div>
   )
 }
 

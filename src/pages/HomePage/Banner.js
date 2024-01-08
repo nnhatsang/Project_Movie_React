@@ -17,8 +17,7 @@ function SampleNextArrow(props) {
         color: "white",
         fontSize: "40px",
       }}
-      onClick={onClick}
-    >
+      onClick={onClick}>
       <i className="fa-solid fa-angle-right" />
     </div>
   );
@@ -36,8 +35,7 @@ function SamplePrevArrow(props) {
         fontSize: "40px",
         color: "white",
       }}
-      onClick={onClick}
-    >
+      onClick={onClick}>
       <i className="fa-solid fa-angle-left" />
     </div>
   );
@@ -77,7 +75,7 @@ const Banner = () => {
     <>
       <Carousel {...setting} arrows={true}>
         {banner.map((item, index) => (
-          <div key={index} className="h-[500px]">
+          <div key={index} className="h-[600px]">
             <img src={item.hinhAnh} alt="" className="w-full bg-center" />
           </div>
         ))}
