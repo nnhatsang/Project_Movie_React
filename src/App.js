@@ -25,8 +25,8 @@ function App() {
         <Route element={<AdminTemplate />} path="/admin">
           <Route index element={<MovieManage />} />
           <Route element={<UserManage />} path="user_manage" />
-          <Route element={<AddMovie />} path="create_movie" />
-          <Route element={<OrderManage />} path="order_manage" />
+          <Route element={<AddMovie />} path="add-movie" />
+          <Route element={<OrderManage />} path="order-movie" />
         </Route>
         <Route path="*" element={<Page404 />} />
       </Routes>

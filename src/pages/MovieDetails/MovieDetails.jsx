@@ -27,90 +27,89 @@ const MovieDetails = () => {
     movieId;
 
   return (
-    <div className=" bg-slate-950  mx-auto">
-      <TrailerModal
-        open={openTraiLer}
-        close={() => setOpenTrailer(false)}
-        movie={movieId}
-      />
-      <div className=" container py-10 md:block sm:block lg:flex gap-10 px-10">
-        <img
-          src={hinhAnh}
-          alt=""
-          className="object-cover w-[300px] h-[400px] rounded-xl "
-        />
-        <div className="title space-y-5 pt-5 lg:w-1/2 md:w-full text-white">
-          <h1 className="text-white font-bold text-xl uppercase">
-            <span className="text-green-500">Tên Phim: </span> {tenPhim}
-          </h1>
-          <h1 className="text-white font-bold">
-            <span className="text-green-500">Ngày Chiếu: </span>
-            {moment(ngayKhoiChieu).format("DD-MM-YYYY ")}
-          </h1>
-          <div className="rating">
-            <h1 className="text-yellow-500 font-bold flex">
-              Đánh Giá:{" "}
-              <span className="text-yellow-500 ml-2 font-bold flex items-center">
-                {danhGia} <AiFillStar />
-              </span>{" "}
-            </h1>
-          </div>
-          <p className="text-justify">{moTa}</p>
-          <button
-            className="px-5 py-3 bg-green-700 text-white rounded font-bold transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-110 hover:bg-red-700 duration-300"
-            onClick={() => setOpenTrailer(true)}
-          >
-            Xem Trailer
-          </button>
-        </div>
-      </div>
-      <div className=" cum_rap container py-5 w-full">
-        <Tabs
-          defaultActiveKey="1"
-          tabPosition={"left"}
-          style={{
-            height: 572, // Set your desired fixed height here
-            overflowY: "auto",
-          }}
-          items={(heThongRapChieu || []).map((item, index) => {
-            return {
-              label: (
-                <img src={item.logo} className="w-10" alt={item.maHeThongRap} />
-              ),
-              key: item.maHeThongRap,
-              children: (
-                <div className="space-y-3 mt-5">
-                  {item.cumRapChieu.map((i, d) => (
-                    <>
-                      <div
-                        className="font-medium text-xl text-green-500"
-                        key={index}
-                      >
-                        {i.tenCumRap}
-                      </div>
-                      <div className="grid mb:grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-5 pr-5">
-                        {i.lichChieuPhim.map((item, index) => (
-                          <Link to={`/book-ticket/${item.maLichChieu}`}>
-                            <div className="space-x-2 bg-gray-300 font-bold border mb:text-xs border-gray-400 rounded-md text-base p-3 transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-110 hover:bg-green-700 duration-300 hover:font-bold hover:border-0 ">
-                              <span className="text-green-600">
-                                {moment(item.ngayChieuGioChieu).format(
-                                  "DD-MM-YYYY"
-                                )}
-                              </span>
-                              <span className="text-red-500">
-                                {moment(item.ngayChieuGioChieu).format("hh-mm")}
-                              </span>
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
-                    </>
-                  ))}
+    <div className="bg-gray-600 dark:bg-gray-700 ">
+      <div className=" container my-5">
+        {movieId && (
+          <div className="grid lg:grid-cols-12 sm:grid-cols-1 space-y-4 text-white">
+            <div className=" lg:col-span-4 sm:col-span-full ">
+              <img
+                src={hinhAnh}
+                alt=""
+                className="block w-full  rounded-lg my-5"
+              />
+            </div>
+            <div className="md:col-span-8 sm:col-span-full  mx-5 flex flex-col justify-center items-baseline space-y-5">
+              <h2 className="font-bold text-2xl mb-2 animate-pulse">
+                {tenPhim}
+              </h2>
+              <p className="text-white leading-7 text-justify md:w-2/3 sm:w-full">
+                {moTa}
+              </p>
+              <div className=" flex text-white text-base font-medium">
+                <p>Ngày khởi chiếu: </p>
+                <span className="ml-10">
+                  {moment(ngayKhoiChieu).format("DD-MM-YYYY")}
+                </span>
+              </div>
+              <div className=" flex flex-row text-white text-base font-medium">
+                <p className="mt-10">Đánh giá: </p>
+                <div className="w-28 h-28 ml-12">
+                  <CircularProgressbar
+                    value={danhGia * 10}
+                    text={`${danhGia}/10`}
+                    strokeWidth={10}
+                    styles={buildStyles({
+                      textSize: "12px",
+                      pathTransitionDuration: 2,
+                      pathColor: `#ff8, ${danhGia / 10})`,
+                      textColor: "#ff8", // Text color
+                      trailColor: "#d6d6d6",
+                      backgroundColor: "#3e98c7",
+                    })}
+                  />
                 </div>
-              ),
-            };
-          })}
-        />
+              </div>
+
+              <div className="sub-btn my-4">
+                <a
+                  href={trailer}
+                  className="btn font-medium text-white text-base bg-green-500 px-3 py-2 rounded uppercase mr-4"
+                >
+                  Xem trailer
+                </a>
+                <Link
+                  to={`/ticket/${tenPhim}/12h`}
+                  className="btn font-medium text-white text-base bg-green-500 px-3 py-2 rounded uppercase mr-4"
+                >
+                  Đặt vé ngay
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div className="bg-white mt-5 w-full">
+          <Tabs
+            defaultActiveKey="1"
+            tabPosition="left"
+            style={{
+              border: "1px solid #8080806e",
+            }}
+          >
+            {(heThongRapChieu || []).map((item, index) => (
+              <Tabs.TabPane
+                tab={
+                  <img
+                    src={item.logo}
+                    className="w-10"
+                    alt={`Logo ${index + 1}`}
+                  />
+                }
+                key={index + 1}
+              ></Tabs.TabPane>
+            ))}
+          </Tabs>
+        </div>
       </div>
     </div>
   );

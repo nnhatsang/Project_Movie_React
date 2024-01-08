@@ -7,11 +7,10 @@ const Header = () => {
   // console.log(user);
   return (
     <>
-      <header className="bg-white">
+      <header className="bg-white text-black">
         <nav
           className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
-          aria-label="Global"
-        >
+          aria-label="Global">
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
@@ -25,8 +24,7 @@ const Header = () => {
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            >
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
               <span className="sr-only">Open main menu</span>
               <svg
                 className="h-6 w-6"
@@ -34,8 +32,7 @@ const Header = () => {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                aria-hidden="true"
-              >
+                aria-hidden="true">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -49,8 +46,7 @@ const Header = () => {
               className={({ isActive, isPending }) => {
                 return isActive ? "text-red-500" : "";
               }}
-              to={"/"}
-            >
+              to={"/"}>
               Trang chủ
             </NavLink>
             <NavLink to={"/cum-rap"}>Cụm rạp</NavLink>
@@ -60,8 +56,7 @@ const Header = () => {
                 // console.log(isActive);
                 return isActive ? "text-red-500" : "";
               }}
-              to={"/ung-dung"}
-            >
+              to={"/ung-dung"}>
               Ứng dụng
             </NavLink>
           </div>
@@ -72,8 +67,7 @@ const Header = () => {
             ) : (
               <NavLink
                 to={"/login"}
-                className="text-sm font-semibold leading-6 text-gray-900"
-              >
+                className="text-sm font-semibold leading-6 text-gray-900">
                 Log in <span aria-hidden="true">→</span>
               </NavLink>
             )}
@@ -93,8 +87,7 @@ const Header = () => {
               </a>
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-gray-700"
-              >
+                className="-m-2.5 rounded-md p-2.5 text-gray-700">
                 <span className="sr-only">Close menu</span>
                 <svg
                   className="h-6 w-6"
@@ -102,8 +95,7 @@ const Header = () => {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  aria-hidden="true"
-                >
+                  aria-hidden="true">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -120,14 +112,12 @@ const Header = () => {
                       type="button"
                       className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                       aria-controls="disclosure-1"
-                      aria-expanded="false"
-                    >
+                      aria-expanded="false">
                       <svg
                         className="h-5 w-5 flex-none"
                         viewBox="0 0 20 20"
                         fill="currentColor"
-                        aria-hidden="true"
-                      >
+                        aria-hidden="true">
                         <path
                           fillRule="evenodd"
                           d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
@@ -138,72 +128,61 @@ const Header = () => {
                     <div className="mt-2 space-y-2" id="disclosure-1">
                       <a
                         href="#"
-                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                      >
+                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                         Analytics
                       </a>
                       <a
                         href="#"
-                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                      >
+                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                         Engagement
                       </a>
                       <a
                         href="#"
-                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                      >
+                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                         Security
                       </a>
                       <a
                         href="#"
-                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                      >
+                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                         Integrations
                       </a>
                       <a
                         href="#"
-                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                      >
+                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                         Automations
                       </a>
                       <a
                         href="#"
-                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                      >
+                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                         Watch demo
                       </a>
                       <a
                         href="#"
-                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                      >
+                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                         Contact sales
                       </a>
                     </div>
                   </div>
                   <a
                     href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                     Features
                   </a>
                   <a
                     href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                     Marketplace
                   </a>
                   <a
                     href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                     Company
                   </a>
                 </div>
                 <div className="py-6">
                   <a
                     href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                     Log in
                   </a>
                 </div>

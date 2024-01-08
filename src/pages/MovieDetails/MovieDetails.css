@@ -1,4 +1,22 @@
-.space-x-2:hover .text-green-600,
-.space-x-2:hover .text-red-500 {
-  color: white !important;
+/* body {
+  background-color: #0a2029;
+  color: #fff;
+} */
+.movie_details {
+  align-items: center;
+  transform: translateY(50%);
+  margin-bottom: 270px;
+}
+.movie_details img {
+  width: 220px;
+}
+.movie_details .content_right {
+  margin-right: 500px;
+}
+button {
+  background-color: #fb4226;
+  padding: 7px 24px;
+}
+.footer {
+    margin-top: 100px;
 }
