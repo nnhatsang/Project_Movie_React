@@ -31,16 +31,16 @@ const BookTicket = () => {
           Thông Tin Chi Tiết
         </h1>
         <div className="grid grid-cols-12 my-5">
-          <div className="mb:col-span-12 sm:col-span-12 lg:col-span-7 p-5">
-            <div className="mb-10 w-full text-black text-2xl screen h-[10rem] rounded flex justify-center items-center">
+          <div className="mb:overflow-scroll mb:col-span-12 sm:col-span-12 lg:col-span-7 p-5">
+            <div className="mb-10 mb:w-[40rem] w-full text-black text-2xl screen h-[10rem] rounded flex justify-center items-center">
               Màn Hình Chiếu
             </div>
 
-            <div className="w-full flex justify-center ">
+            <div className="w-full  mb:w-[40rem] flex justify-center ">
               <HangGhe danhSachGhe={danhSachGhe} />
             </div>
 
-            <div className=" mt-5 flex w-full justify-around ">
+            <div className="mb:w-[40rem] mt-5 flex w-full justify-around ">
               <h1 className="text-white flex flex-col items-center font-bold">
                 <button className="ghe flex items-center"></button> Thường
               </h1>

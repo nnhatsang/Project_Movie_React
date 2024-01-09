@@ -9,7 +9,7 @@ const HomePage = () => {
       <Banner />
 
       {/* <MovieShowing /> */}
-      <div className="container space-y-10 my-10">
+      <div className="container space-y-10 py-10">
         <ListFilm />
         <div className="md:hidden mb:hidden lg:block sm:hidden">
           <LichChieuRap />
