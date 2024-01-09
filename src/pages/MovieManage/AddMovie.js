@@ -1,4 +1,4 @@
-import { DatePicker, Rate, Switch } from "antd";
+import { DatePicker, Rate, Switch, message } from "antd";
 import { useFormik } from "formik";
 import React, { useState } from "react";
 import { number } from "yup";
@@ -59,7 +59,8 @@ const AddMovie = () => {
           navigate("/admin");
         })
         .catch((err) => {
-          console.log(err);
+          console.log(err.response.data.content);
+          message.error(err.response.data.content);
           setImage("");
         });
     },

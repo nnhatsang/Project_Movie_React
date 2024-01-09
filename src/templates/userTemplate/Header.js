@@ -1,14 +1,48 @@
+import { LogoutOutlined, PlaySquareOutlined } from "@ant-design/icons";
+import { message } from "antd";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import "./Header.css";
 
 const Header = () => {
   const { user } = useSelector((state) => state.userSlice);
   // console.log(user);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const nav = useNavigate();
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
+  };
+  const renderUser = () => {
+    if (user) {
+      return (
+        <>
+          <p className="lg:pt-2">{user.hoTen}</p>
+          <button
+            onClick={() => {
+              localStorage.removeItem("user_info");
+              message.success("Đăng xuất thành công!");
+              setTimeout(() => {
+                nav("/login");
+              }, 1000);
+            }}
+            className="bg-transparent mb:mt-5 lg:inline py-2  lg:ml-4 bg-green-400 lg:px-5 text-left rounded-md"
+          >
+            <span className="">Đăng Xuất</span>
+            <LogoutOutlined className="ml-2 text-xl" />{" "}
+          </button>
+        </>
+      );
+    } else {
+      return (
+        <NavLink
+          to={"/login"}
+          className="text-sm font-bold leading-6 text-gray-900"
+        >
+          Log in <span aria-hidden="true">→</span>
+        </NavLink>
+      );
+    }
   };
   return (
     <>
@@ -18,14 +52,13 @@ const Header = () => {
           aria-label="Global"
         >
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
+            <Link to={`/`} className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt
+              <PlaySquareOutlined
+                className="custom-icon"
+                style={{ fontSize: "24px", color: "blue" }}
               />
-            </a>
+            </Link>
           </div>
           <div className="flex lg:hidden">
             <button
@@ -72,8 +105,7 @@ const Header = () => {
             </NavLink>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end ">
-            {/* nếu người dùng dang nhap rôi hiển thị tên */}
-            {user ? (
+            {/* {user ? (
               <p>{user.hoTen}</p>
             ) : (
               <NavLink
@@ -82,7 +114,8 @@ const Header = () => {
               >
                 Log in <span aria-hidden="true">→</span>
               </NavLink>
-            )}
+            )} */}
+            {renderUser()}
           </div>
         </nav>
         <div
@@ -124,7 +157,43 @@ const Header = () => {
                 </svg>
               </button>
             </div>
-            <div className="mt-6 flow-root">{/* ... */}</div>
+            <div className="mt-6 flow-root">
+              <div className="flex flex-col space-y-5">
+                <NavLink
+                  className={({ isActive, isPending }) => {
+                    return isActive ? "text-red-500" : "";
+                  }}
+                  to={"/"}
+                >
+                  Trang chủ
+                </NavLink>
+                <NavLink to={"/cum-rap"}>Cụm rạp</NavLink>
+                <NavLink to={"/"}>Tin tức</NavLink>
+                <NavLink
+                  className={({ isActive, isPending }) => {
+                    // console.log(isActive);
+                    return isActive ? "text-red-500" : "";
+                  }}
+                  to={"/ung-dung"}
+                >
+                  Ứng dụng
+                </NavLink>
+              </div>
+              <div className="mt-5 flex flex-col">
+                {/* nếu người dùng dang nhap rôi hiển thị tên */}
+                {renderUser()}
+                {/* {user ? (
+                  <p>{user.hoTen}</p>
+                ) : (
+                  <NavLink
+                    to={"/login"}
+                    className="text-sm font-bold leading-6 text-gray-900"
+                  >
+                    Log in <span aria-hidden="true">→</span>
+                  </NavLink>
+                )} */}
+              </div>
+            </div>
           </div>
         </div>
       </header>

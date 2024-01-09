@@ -56,16 +56,20 @@ const LichChieuCumRap = ({ maHeThongRap }) => {
                         {i.lstLichChieuTheoPhim
                           .splice(0, 4)
                           .map((item, index) => (
-                            <div className="space-x-2 bg-gray-100 border border-gray-400 rounded-md text-base p-3">
-                              <span className="text-green-600 font-medium">
-                                {moment(item.ngayChieuGioChieu).format(
-                                  "DD-MM-YYYY"
-                                )}
-                              </span>
-                              <span className="text-red-500">
-                                {moment(item.ngayChieuGioChieu).format("hh-mm")}
-                              </span>
-                            </div>
+                            <Link to={`/book-ticket/${item.maLichChieu}`}>
+                              <div className="space-x-2 bg-gray-300 font-bold border mb:text-xs border-gray-400 rounded-md text-base p-3 transition ease-in-out delay-15 hover:-translate-y-1 hover:scale-110 hover:bg-green-700 duration-300 hover:font-bold hover:border-0 ">
+                                <span className="text-green-600">
+                                  {moment(item.ngayChieuGioChieu).format(
+                                    "DD-MM-YYYY"
+                                  )}
+                                </span>
+                                <span className="text-red-500">
+                                  {moment(item.ngayChieuGioChieu).format(
+                                    "hh-mm"
+                                  )}
+                                </span>
+                              </div>
+                            </Link>
                           ))}
                       </div>
                     </div>

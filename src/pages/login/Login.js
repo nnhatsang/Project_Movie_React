@@ -1,5 +1,5 @@
 import React from "react";
-import * as loginAnimation from "../../assets/animations/loading-animation.json";
+import * as loginAnimation from "../../assets/animations/login_animate.json";
 import Lottie from "react-lottie";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -9,6 +9,7 @@ import { setLocal } from "../../utils/Local";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/userSlice";
+import { listAPI } from "../../services/API";
 const Login = () => {
   const dispatch = useDispatch();
   const [messageApi, contextHolder] = message.useMessage();
@@ -20,13 +21,15 @@ const Login = () => {
         matKhau: "",
       },
       onSubmit: (values) => {
-        API.loginServ(values)
+        listAPI
+          .login(values)
           .then((res) => {
             console.log(res);
-            messageApi.open({
-              type: "success",
-              content: "Đăng nhập thành công",
-            });
+            message.success("Đăng nhập thành công");
+            // messageApi.open({
+            //   type: "success",
+            //   content: "Đăng nhập thành công",
+            // });
             setLocal(res.data.content, "user_info");
             dispatch(setUser(res.data.content));
             setTimeout(() => {
@@ -34,6 +37,7 @@ const Login = () => {
             }, 1000);
           })
           .catch((err) => {
+            // message.error("Thất bại");
             messageApi.open({
               type: "error",
               content: err.response.data.content,
@@ -70,7 +74,8 @@ const Login = () => {
                 <div>
                   <label
                     htmlFor="taiKhoan"
-                    className="block mb-2 text-sm font-medium text-gray-900 ">
+                    className="block mb-2 text-sm font-medium text-gray-900 "
+                  >
                     Tài khoản
                   </label>
                   <input
@@ -92,7 +97,8 @@ const Login = () => {
                 <div>
                   <label
                     htmlFor="matKhau"
-                    className="block mb-2 text-sm font-medium text-gray-900 ">
+                    className="block mb-2 text-sm font-medium text-gray-900 "
+                  >
                     Mật khẩu
                   </label>
                   <input
@@ -114,7 +120,8 @@ const Login = () => {
                 <div>
                   <button
                     type="submit"
-                    className="py-2 px-5 bg-black text-white rounded-md hover:bg-opacity-70 duration-500">
+                    className="py-2 px-5 bg-black text-white rounded-md hover:bg-opacity-70 duration-500"
+                  >
                     Đăng nhập
                   </button>
                 </div>

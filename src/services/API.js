@@ -28,9 +28,16 @@ export const listAPI = {
   delete_movie: (maPhim) =>
     API.delete(`/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`),
 
-  addMovie: (data) => {
-    return API.post("/api/QuanLyPhim/ThemPhimUploadHinh", data);
-  },
+  addMovie: (data) => API.post("/api/QuanLyPhim/ThemPhimUploadHinh", data),
+  // admin user
+  getUser: () =>
+    API.get("/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01"),
+  getUserById: (user) =>
+    API.get(
+      `https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01&tuKhoa=${user}`
+    ),
+  deleteUser: (taiKhoan) =>
+    API.delete(`/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`),
 };
 
 export const quanLiVe = {

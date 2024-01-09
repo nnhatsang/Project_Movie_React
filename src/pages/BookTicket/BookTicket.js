@@ -35,14 +35,14 @@ const BookTicket = () => {
             <div className="mb-10 w-full text-black text-2xl screen h-[10rem] rounded flex justify-center items-center">
               Màn Hình Chiếu
             </div>
-            <div className="flex justify-center ">
-              <div className="w-full">
-                <HangGhe danhSachGhe={danhSachGhe} />
-              </div>
+
+            <div className="w-full flex justify-center ">
+              <HangGhe danhSachGhe={danhSachGhe} />
             </div>
+
             <div className=" mt-5 flex w-full justify-around ">
               <h1 className="text-white flex flex-col items-center font-bold">
-                <button className="ghe flex items-center j"></button> Thường
+                <button className="ghe flex items-center"></button> Thường
               </h1>
               <h1 className="text-white flex flex-col items-center font-bold">
                 <button className="ghe gheDaDat"></button>Đã đặt

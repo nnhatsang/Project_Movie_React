@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { datGhe } from "../../redux/ticketSlice";
+import "./BookTicket.scss";
 
 const HangGhe = ({ danhSachGhe }) => {
   const dispatch = useDispatch();
@@ -43,31 +44,16 @@ const HangGhe = ({ danhSachGhe }) => {
               <span>{i.stt}</span>
             )}
           </button>
-          {(i + 1) % 16 === 0 ? <br /> : ""}
+          {(d+ 1) % 16 === 0 ? <br /> : ""}
         </Fragment>
       );
     });
   return (
-    <div className="mb:w-[40rem]">
+    <div className="">
       {renderGhe()}
-      {/* <div className="grid grid-cols-2 mt-5 ">
-        <h1 className="text-white flex items-center font-bold">
-          <button className="ghe "></button> : Ghế Chưa Đặt{" "}
-        </h1>
-        <h1 className="text-white flex items-center font-bold">
-          <button className="ghe gheDaDat"></button> : Ghế đã đặt{" "}
-        </h1>
-        <h1 className="text-white flex items-center font-bold">
-          <button className="ghe gheDangDat"></button> : Ghế đang được chọn{" "}
-        </h1>
-        <h1 className="text-white flex items-center font-bold">
-          <button className="ghe gheDuocMinhDat"></button> : Ghế bạn đã đặt{" "}
-        </h1>
-        <h1 className="text-white flex items-center font-bold">
-          <button className="ghe gheVip"></button> : Ghế Vip{" "}
-        </h1>
-      </div> */}
+
     </div>
+    // <>{renderGhe()}</>
   );
 };
 

@@ -1,31 +1,40 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { listAPI } from "../../services/API";
 import { message } from "antd";
 
 const BookInfo = ({ thongTinPhim }) => {
   const { arrGheDangDat } = useSelector((state) => state.ticketSlice);
+  const nav = useNavigate();
   console.log(thongTinPhim);
   const datVeBtn = () => {
-    if (arrGheDangDat.length > 0) {
-      let data = {
-        maLichChieu: thongTinPhim.maLichChieu,
-        danhSachVe: arrGheDangDat,
-      };
-      listAPI
-        .bookTicket(data)
-        .then((res) => {
-          message.success(res.data.content);
-          setTimeout(() => {
-            window.location.reload();
-          }, 2000);
-        })
-        .catch((err) => {
-          message.error(err.reponse.content);
-        });
+    if (!localStorage.getItem("user_info")) {
+      message.error("Vui lòng đăng nhập để đặt vé");
+      return setTimeout(() => {
+        nav("/login");
+      }, 2000);
     } else {
-      message.error("Vui lòng chọn ghế");
+      if (arrGheDangDat.length > 0) {
+        let data = {
+          maLichChieu: thongTinPhim.maLichChieu,
+          danhSachVe: arrGheDangDat,
+        };
+        listAPI
+          .bookTicket(data)
+          .then((res) => {
+            message.success(res.data.content);
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
+          })
+          .catch((err) => {
+            console.log(err);
+            message.error("có lỗi xảy ra");
+          });
+      } else {
+        message.error("Vui lòng chọn ghế");
+      }
     }
   };
   return (
@@ -57,8 +66,10 @@ const BookInfo = ({ thongTinPhim }) => {
         <h1 className="text-gray-500 border-b border-y-white justify-between font-bold text-base">
           Ngày giờ chiếu :
           <span className="text-white font-[500] ml-1 text-lg">
-            {" "}
             {thongTinPhim?.ngayChieu}
+          </span>
+          <span className="text-red-400 font-[500] ml-1 text-lg text-right">
+            {thongTinPhim?.gioChieu}
           </span>
         </h1>
         <h1 className="text-gray-500 mt-0 py-4 border-b border-y-white  flex min-h-[8rem] justify-between font-bold text-base break-words">
