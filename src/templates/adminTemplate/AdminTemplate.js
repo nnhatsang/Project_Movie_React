@@ -104,7 +104,11 @@ const AdminTemplate = () => {
               borderRadius: borderRadiusLG,
             }}
           >
-            <Outlet />
+            <div className="mb:overflow-scroll">
+              <div className="mb:w-[75rem]">
+                <Outlet />
+              </div>
+            </div>
           </Content>
         </Layout>
       </Layout>

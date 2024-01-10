@@ -20,11 +20,13 @@ const MovieManage = () => {
   const nav = useNavigate();
   const { arrMovie } = useSelector((state) => state.MovieSlice);
   const showDeleteModal = (movieId) => {
+    console.log(isDeleteModalVisible);
     setDeletingMovieId(movieId);
     setDeleteModalVisible(true);
   };
 
   const handleDeleteConfirm = () => {
+    console.log(deletingMovieId)
     listAPI
       .delete_movie(deletingMovieId)
       .then(() => {
