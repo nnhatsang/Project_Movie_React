@@ -24,7 +24,8 @@ export const listAPI = {
   login: (data) => API.post("/api/QuanLyNguoiDung/DangNhap", data),
   // admin
   get_movie: () => API.get("/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01"),
-
+  detail_film_admin: (MaPhim) =>
+    API.get(`/api/QuanLyPhim/LayThongTinPhim?MaPhim=${MaPhim}`),
   delete_movie: (maPhim) =>
     API.delete(`/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`),
 
@@ -33,9 +34,10 @@ export const listAPI = {
   getUser: () =>
     API.get("/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01"),
   getUserById: (user) =>
-    API.get(
-      `https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01&tuKhoa=${user}`
-    ),
+    API.post(`/api/QuanLyNguoiDung/LayThongTinNguoiDung?taiKhoan=${user}`),
+  updateUser: () =>
+    API.put(`/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung
+`),
   deleteUser: (taiKhoan) =>
     API.delete(`/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`),
 };
